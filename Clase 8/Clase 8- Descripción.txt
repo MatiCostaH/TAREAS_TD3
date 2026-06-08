@@ -1,0 +1,29 @@
+========================================= CLASE 8 - HILOS ============================================
+
+	En esta clase aprendemos que implica el uso de esta herramienta de programación. En primer lugar para comprender 
+como funcionan debemos imaginar un proceso en el cual existe una división de flujo de trabajo con determinadas 
+características. En primer lugar esta especie de subprogramas no requiere llamar al sistema o que el Kernel se 
+entere directamente de que están haciendo, la comunicación con el sistema será exclusivamente a través del proceso que
+engloba al conjunto de hilos. Esto facilita en cierto sentido el funcionamiento pero también cuenta con desventajas,
+puesto que un error en un hilo puede detener todo el proceso. Por otro lado su uso suele ser en sistemas de varios núcleos
+ya que no suele ser muy eficiente en términos de uso de reloj pudiendo dejar largos tiempos de espera bloqueante para el CPU.
+
+
+======================================== PRIMER EJEMPLO =============================================
+	El primer ejemplo nos muestra como se crean 10 hilos y cada uno ejecuta su "Hello world". Pero si prestamos atención
+el main finaliza antes de que el último pueda ejecutarse y esto desde ya puede ser un gran problema, afortunadamente en el 
+siguiente ejemplo se resuelve.
+
+
+======================================= SEGUNDO EJEMPLO =============================================
+	Aquí introducimos la instrucción "join" la cual permite que todos los hilos finalicen antes de que el proceso 
+principal cierre la ejecución, podemos ver como sin utilizar el comando el tiempo de espera de los procesos no es respetado.
+Por otro lado al activarlo si esperara el tiempo correspondiente, es decir no cerrara el proceso principal hasta que los hilos 
+que tengan join finalicen.
+
+
+====================================== TERCER EJEMPLO ===============================================
+	Finalmente introducimos la instrucción "detached" que se puede entender como desprendido. Nos permite devolver los
+recursos que utiliza al finalizar el mismo al sistema operativo, esto es útil para un uso de recursos más eficiente y optimizado
+que mejore el funcionamiento del dispositivo. Como desventaja el proceso al que se le aplique el detached no podrá usar la 
+instrucción anterior pudiendo perder parte de su ejecución.
